@@ -11,8 +11,8 @@ services:
     image: hasura/graphql-engine:v2.0.1
     ports:
       - "8080:8080"
-    # extra_hosts:
-    # - "host.docker.internal:host-gateway"
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
     depends_on:
       - "postgres"
     restart: always

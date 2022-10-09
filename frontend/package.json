@@ -1,7 +1,7 @@
 {
-  "name": "cloudspeak-hasura-crash-course-frontend",
+  "name": "hasura-blog",
   "version": "0.1.0",
-  "author": "cloudspeak",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.3.21",
