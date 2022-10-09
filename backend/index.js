@@ -45,3 +45,18 @@ app.post('/blog-post-event', async (req, res) => {
 		);
 	}
 });
+
+// archiving posts action
+app.post('/archive_post', async (req, res) => {
+	console.log(req.body);
+
+	const sequelize = new Sequelize(POSTGRESS_CONNECTION_STRING, {});
+	const { age_in_second } = req.body.input;
+
+	const [result, metadata] = await sequelize.query(
+		"UPDATE blog_post SET is_published = false WHERE date < now() - interval ':age_in_second' second;",
+		{ replacements: { age_in_second: age_in_second } }
+	);
+
+	res.status(200).json({ rows_affected: metadata.rowCount });
+});
